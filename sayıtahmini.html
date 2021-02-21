@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Q2 </title>
+    <script>
+
+        function sayıtahmin (random,tahmin,hak,deneme) {
+        var tahmin;
+        var hak = 5; 
+        var deneme = 0;
+        var random = Math.floor(Math.random()*100)+1;
+
+        while (hak > 0){
+            while (isNaN(tahmin) || (tahmin >= 0) || tahmin % 1 != 0){
+                if (hak > 0 && hak < 6) {
+                tahmin = prompt("Lütfen tahmininizi yapın!",""); 
+                tahmin = parseInt(tahmin, 10);
+                deneme++;
+
+                if (tahmin == random){
+                    hak--;
+                    tahmin = 0;
+                    alert(+ deneme + ". denemede doğru tahmin yaptınız. Kalan hak sayısı: " + (hak) + " Doğru cevap: " + random);
+                break;}
+
+                else if (tahmin < random){
+                    hak--;
+                    alert(+ deneme + ". denemede çok küçük bir sayı girdiniz. Kalan hak sayısı: " + (hak));}
+
+                else {
+                    hak--;
+                    alert(+ deneme + ". denemede çok büyük bir sayı girdiniz. Kalan hak sayısı: " + (hak));}
+        }
+        if (hak == 0){
+            alert("Deneme sayınız bitti. Oyunu kaybettiniz. Doğru cevap: " + random);break;}
+        }
+    }
+}   
+</script>
+</head>
+
+<body>
+    <script>
+         window.onload = function yenioyun(){
+            alert("1'den 100'e kadar bir tamsayı üretildi."); 
+            sayıtahmin();
+            return
+            }
+    </script>
+</body>
+</html>
